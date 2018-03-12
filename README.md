@@ -11,7 +11,7 @@ On remote (your computer):
 
 On server (RaspberryPi):
 - Setup what should the Raspberry do for each instruction in `Instructions definitions` in `server.py`
-- Just run it (with python2.7)
+- Just run it (with python2.7) `python server.py`
 
 For simple demosntration you can use files in [turtle-example](turtle-example) these are slightly edited to control [python turtle](https://docs.python.org/3.3/library/turtle.html?highlight=turtle), run both files on local machine.
 
