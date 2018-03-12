@@ -13,7 +13,7 @@ On server (RaspberryPi):
 - Setup what should the Raspberry do for each instruction in `Instructions definitions` in [server.py](server.py)
 - Just run it (with python2.7) `python server.py`
 
-For simple demosntration you can use files in [turtle-example/](turtle-example) these are slightly edited to control [python turtle](https://docs.python.org/3.3/library/turtle.html?highlight=turtle), run both files on local machine.
+For simple demosntration you can use files in [turtle-example/](turtle-example) these are slightly edited to control [python turtle](https://docs.python.org/3.3/library/turtle.html?highlight=turtle), run both files on local machine and run `remote.py` with `127.0.0.1` as IP address.
 
 You can also pass some arguments if you want: `python server.py <IP_address> <port> <execution_delay>`
 
