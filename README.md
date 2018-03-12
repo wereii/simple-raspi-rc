@@ -10,10 +10,10 @@ On remote (your computer):
 - Run `python remote.py <IP_address_of_your_RaspberryPi>` with root/admin privileges. ( `keyboard` module needs admin priv.)
 
 On server (RaspberryPi):
-- Setup what should the Raspberry do for each instruction in `Instructions definitions` in `server.py`
+- Setup what should the Raspberry do for each instruction in `Instructions definitions` in [server.py]
 - Just run it (with python2.7) `python server.py`
 
-For simple demosntration you can use files in [turtle-example](turtle-example) these are slightly edited to control [python turtle](https://docs.python.org/3.3/library/turtle.html?highlight=turtle), run both files on local machine.
+For simple demosntration you can use files in [turtle-example] these are slightly edited to control [python turtle](https://docs.python.org/3.3/library/turtle.html?highlight=turtle), run both files on local machine.
 
 You can also pass some arguments if you want: `python server.py <IP_address> <port> <execution_delay>`
 
