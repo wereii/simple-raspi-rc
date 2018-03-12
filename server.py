@@ -1,15 +1,17 @@
 # python2.7
 
 
-from __future__ import unicode_literals
-from __future__ import print_function
+from __future__ import print_function, unicode_literals
 
 import socket
-import turtle
-import time
 import sys
-#from gpiozero import PWMOutputDevice
-#from gpiozero import DigitalOutputDevice
+import time
+import turtle
+
+# Example for remote control of motors
+# import gpiozero
+# from gpiozero import PWMOutputDevice
+# from gpiozero import DigitalOutputDevice
 
 # Setup constants from command line arguments
 try:
@@ -19,46 +21,49 @@ except IndexError:
 try:
     UDP_PORT = sys.argv[2]
 except IndexError:
-    UDP_PORT = 8808
+    UDP_PORT = 2468
 try:
-    EXEC_SPEED_LIMITER = sys.argv[3]
+    EXECUTION_SPEED_LIMIT = sys.argv[3]
 except IndexError:
-    EXEC_SPEED_LIMITER = 0.01
+    EXECUTION_SPEED_LIMIT = 0.01
 
 
-"""
-Instructions definitions
+# -- Instructions definitions --
+'''
 This is the place where you define actions
-for each instruction (ff, down, left, right, ...)
-"""
+for each instruction number (forward, down, left, right, ...)
+'''
+
+
 def forward():
-    # Instruction 1
-    # turtle.forward(4)
+    '''Instruction 1'''
     pass
 
-def stop():
-    # Instruction 5
-    # set all controls to zero (off) state
-    # turtle.clear()
-    pass
 
 def back():
-    # Instruction 2
-    # turtle.back(5)
+    '''Instruction 2'''
     pass
 
-def left():
-    # Instruction 4
-    # turtle.left(8)
-    pass
 
 def right():
-    # Instruction 3
-    # turtle.right(8)
+    '''instruction 3'''
     pass
 
-# Dictionary with instructions \
-# bind to references of our command functions
+
+def left():
+    '''Instruction 4'''
+    pass
+
+
+def stop():
+    '''Instruction 5\n
+    To set all controls to zero (off) state'''
+    pass
+
+# -- End of instructions definitions --
+
+''' Dictionary with instructions \
+bind to references of our command functions'''
 instruction_set = {
     1: forward,
     2: back,
@@ -69,23 +74,20 @@ instruction_set = {
 
 # UDP connection setup
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-print("Listening on {}:{}".format(UDP_IP, UDP_PORT))
 sock.bind((UDP_IP, UDP_PORT))
+print("Listening on {}:{}".format(UDP_IP, UDP_PORT))
 
 # Main loop
 while True:
-	# Slow down the loop, gets buggy when too fast
-	# You should try slowing down the client first
-	time.sleep(EXEC_SPEED_LIMITER)
+    # Slow down the loop, gets buggy when too fast
+    # You should try slowing down the remote first
+    time.sleep(EXECUTION_SPEED_LIMIT)
 
-	# Receive data from client...
-	data, addr = sock.recvfrom(8)
-	
-	# parse instruction...
-	message = int(data)
-	
-	# and execute it.
-	instruction_set[message]()
-
-# Just for catching exceptions
-input()
+    # Receive data from client...
+    data, addr = sock.recvfrom(8)
+    
+    # parse instruction...
+    message = int(data)
+    
+    # and execute it.
+    instruction_set[message]()

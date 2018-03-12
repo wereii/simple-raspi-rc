@@ -1,16 +1,9 @@
-# python2.7
-
-
-from __future__ import unicode_literals
-from __future__ import print_function
+from __future__ import print_function, unicode_literals
 
 import socket
-import turtle
-import time
 import sys
-
-# from gpiozero import PWMOutputDevice
-# from gpiozero import DigitalOutputDevice
+import time
+import turtle
 
 # Setup constants from command line arguments
 try:
@@ -61,8 +54,8 @@ def stop():
 
 # -- End of instructions definitions --
 
-# Dictionary with instructions
-# bind to references of our command functions
+''' Dictionary with instructions \
+bind to references of our command functions'''
 instruction_set = {
     1: forward,
     2: back,

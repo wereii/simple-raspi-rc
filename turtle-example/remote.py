@@ -1,9 +1,8 @@
-# python3
-
-import sys
 import socket
-import keyboard
+import sys
 import time
+
+import keyboard
 
 # Setup constants from command line arguments
 try:
@@ -17,7 +16,7 @@ except IndexError:
 try:
     EXECUTION_SPEED_LIMIT = sys.argv[3]
 except IndexError:
-    EXECUTION_SPEED_LIMIT = 0.1
+    EXECUTION_SPEED_LIMIT = 0.12
 
 # Prepare UDP connection to server
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
