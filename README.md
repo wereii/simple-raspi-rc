@@ -7,11 +7,16 @@ It's intent is to control the raspberrypi motors over gpio but it can be easily 
 On remote (your computer): 
 - Download python3.6
 - Execute in command line: `pip install keyboard`
-- Run `remote.py` with root/admin privileges. ( `keyboard` module needs admin priv.)
+- Run `python remote.py <IP_address_of_your_RaspberryPi>` with root/admin privileges. ( `keyboard` module needs admin priv.)
 
 On server (RaspberryPi):
 - Setup what should the Raspberry do for each instruction in `Instructions definitions` in `server.py`
 - Just run it (with python2.7)
+
+For simple demosntration you can use files in (https://github.com/tinytom/simple-raspi-rc/tree/master/turtle-example)[turtle-example] these are slightly edited to control (https://docs.python.org/3.3/library/turtle.html?highlight=turtle)[python turtle], run both files on local machine. 
+
+You can also pass it some arguments if you want: `python server.py <IP_address> <port> <execution_delay>`
+
 
 ### Notes
 You should be able to run the files on both python2 and 3 but I have had to run `server.py` with python2.7 on RaspberryPi as the gpiozero wasn't working with python3, `remote.py` is intended to run on python3.6.
